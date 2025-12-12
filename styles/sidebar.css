@@ -1,0 +1,13 @@
+.sidebar-button {
+  background-color: transparent;
+  border: none;
+
+  height: 32px;
+  width: 32px;
+
+  cursor: pointer;
+}
+
+.sidebar-button-container {
+  margin: 8px;
+}
