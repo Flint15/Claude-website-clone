@@ -1,3 +1,9 @@
+:root {
+  --based-font-color: rgb(194, 192, 182);
+  --border-color: rgb(63, 63, 63);
+  --send-button-color: rgba(198, 97, 63, 0.5);
+}
+
 main {
   position: relative;
   
@@ -145,7 +151,7 @@ main {
   cursor: pointer;
 }
 
-.models-container .model-name {
+.models-button-container .model-name {
   color: var(--based-font-color);
 }
 
