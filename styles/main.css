@@ -21,8 +21,6 @@ main {
 
   display: flex;
   justify-content: center;
-
-  z-index: -100;
 }
 
 .content {
@@ -31,6 +29,8 @@ main {
   align-items: center;
 
   padding: 190px 32px 0px 32px;
+
+  z-index: 100;
 }
 
 .tooltip {
