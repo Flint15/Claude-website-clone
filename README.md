@@ -4,6 +4,7 @@ A modern chat interface inspired by Claude AI
 
 ## Features
 
+- Toggle Sidebar
 - Dark Theme
 
 ## Getting started
@@ -15,3 +16,4 @@ Technologies
 
 - HTML
 - CSS
+- TypeScript
