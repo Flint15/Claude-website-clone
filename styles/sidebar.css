@@ -8,22 +8,66 @@ body {
   display: flex;
 }
 
+a,
+a:visited,
+a:hover,
+a:active,
+a:focus {
+  color: inherit;        
+  text-decoration: none; 
+  outline: none;         
+}
+
+
 aside {
-  width: 48px;
+  width: fit-content;
   height: 100vh;
 
   border-right: 1px solid var(--color-border);
 
   position: relative;
 
-  transform: translateX(-100%);
-  transition: transform 0.12s;
-
   z-index: 101;
+  transition: transform 0.2s;
 }
 
-aside.active {
-  transform: translateX(0);
+aside.closed {
+  transform: translateX(-100%);
+}
+
+aside.closed .sidebar-button-container {
+  position: fixed;
+  top: 0px;
+  left: 75px;
+}
+
+.sidebar-title {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-title a {
+  padding-left: 8px;
+}
+
+.sidebar-button-container {
+  padding: 8px;
+
+  z-index: 1007;
+}
+
+.sidebar-button {
+  position: relative;
+
+  background-color: transparent;
+  border: none;
+
+  height: 32px;
+  width: 32px;
+
+  cursor: pointer;
+
+  z-index: 1007;
 }
 
 .tooltip {
@@ -42,29 +86,6 @@ aside.active {
   pointer-events: none;
 
   opacity: 0;
-}
-
-.sidebar-button-container {
-  padding: 8px;
-
-  position: absolute;
-  right: -50px;
-
-  z-index: 1007;
-}
-
-.sidebar-button {
-  position: relative;
-
-  background-color: transparent;
-  border: none;
-
-  height: 32px;
-  width: 32px;
-
-  cursor: pointer;
-
-  z-index: 1007;
 }
 
 .sidebar-button .tooltip {
