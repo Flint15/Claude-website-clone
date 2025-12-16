@@ -2,7 +2,8 @@
   --color-bg-primary: rgb(38 38 38);
   --color-bg-secondary: rgb(23, 23, 23);
   --color-bg-thirty: rgb(9, 9, 9);
-  --color-border: rgb(63, 63, 63);
+
+  --color-border-primary: rgb(63, 63, 63);
 
   --color-text-primary: rgb(194, 192, 182);
   --color-text-secondary: rgb(156, 154, 146);
@@ -32,7 +33,7 @@ aside {
   width: fit-content;
   height: 100vh;
 
-  border-right: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border-primary);
 
   position: fixed;
 

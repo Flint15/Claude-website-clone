@@ -7,7 +7,8 @@
   --color-text-secondary: rgb(156, 154, 146);
   --color-text-thirty: rgb(232, 232, 232);
 
-  --color-border: rgb(63, 63, 63);
+  --color-border-primary: rgb(63, 63, 63);
+  --color-border-secondary: rgba(255, 255, 255, 0.04);
 
   --btn-bg-send: rgba(198, 97, 63, 0.5);
   --input-bg-color: rgb(48, 48, 46);
@@ -116,6 +117,8 @@ main {
 .input-field {
   background-color: var(--input-bg-color);
   border-radius: 20px;
+  border: 1px solid var(--color-border-secondary);
+
   padding: 18px;
 
   width: 636px;
@@ -162,7 +165,7 @@ main {
 
 .additional-actions-container button {
   background-color: transparent;
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border-primary);
   border-radius: 9px;
 
   display: flex;
