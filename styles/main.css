@@ -12,6 +12,8 @@
 
   --btn-bg-primary: rgb(214, 118, 83);
   --btn-bg-secondary: rgba(198, 97, 63, 0.5);
+  --btn-bg-thirty: rgb(198, 94, 56);
+  --btn-bg-thirty-brighter: rgb(215, 110, 72);
   
   --input-bg-color: rgb(48, 48, 46);
 }
@@ -206,4 +208,15 @@ main {
   padding: 8px;
 
   pointer-events: none;
+}
+
+.send-button-container button.active {
+  pointer-events: auto;
+  cursor: pointer;
+
+  background-color: var(--btn-bg-thirty);
+}
+
+.send-button-container button.active:hover {
+  background-color: var(--btn-bg-thirty-brighter);
 }
