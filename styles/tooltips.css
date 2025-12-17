@@ -48,3 +48,16 @@ aside .tooltip {
   opacity: 1;
   transition: opacity 0.2s;
 }
+
+.incognito-mode-container .tooltip {
+  position: absolute;
+  left: -160px;
+  bottom: 5px;
+
+  opacity: 0;
+}
+
+.incognito-mode-container:hover .tooltip {
+  opacity: 1;
+  transition: opacity 0.2s;
+}

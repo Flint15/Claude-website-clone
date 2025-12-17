@@ -34,22 +34,6 @@ main {
   z-index: 100;
 }
 
-.tooltip {
-  height: 15px;
-
-  background-color: var(--color-bg-thirty);
-  border-radius: 6px;
-
-  padding: 6px;
-
-  color: var(--color-text-thirty);
-  font-size: 13px;
-  font-weight: bold;
-  font-family: sans-serif;
-  white-space: nowrap;
-  pointer-events: none;
-}
-
 .keyboard-shortcuts {
   color: var(--color-text-secondary);
 }
@@ -67,19 +51,6 @@ main {
   padding: 6px;
 
   cursor: pointer;
-}
-
-.incognito-mode-container .tooltip {
-  position: absolute;
-  left: -150px;
-  bottom: 5px;
-
-  opacity: 0;
-}
-
-.incognito-mode-container:hover .tooltip {
-  opacity: 1;
-  transition: opacity 0.2s;
 }
 
 .upgrade-baner {
