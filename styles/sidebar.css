@@ -38,17 +38,6 @@ aside {
   position: fixed;
 
   z-index: 101;
-  transition: transform 0.2s;
-}
-
-aside.closed {
-  transform: translateX(-100%);
-}
-
-aside.closed .sidebar-button-container {
-  position: fixed;
-  top: 15px;
-  right: -50px;
 }
 
 aside .sidebar-button-container {
@@ -72,6 +61,8 @@ aside .sidebar-button-container {
 }
 
 .sidebar-button-container {
+  width: fit-content;
+
   z-index: 1007;
 }
 
@@ -87,35 +78,6 @@ aside .sidebar-button-container {
   cursor: pointer;
 
   z-index: 1007;
-}
-
-.tooltip {
-  height: 15px;
-
-  background-color: var(--color-bg-thirty);
-  border-radius: 6px;
-
-  padding: 6px;
-
-  color: var(--color-text-thirty);
-  font-size: 13px;
-  font-weight: bold;
-  font-family: sans-serif;
-  white-space: nowrap;
-  pointer-events: none;
-
-  opacity: 0;
-}
-
-.sidebar-button .tooltip {
-  position: absolute;
-  bottom: 4px;
-  left: 38px;
-}
-
-.sidebar-button:hover .tooltip {
-  opacity: 1;
-  transition: opacity 0.2s;
 }
 
 .new-chat-link-container {
@@ -148,24 +110,6 @@ aside .sidebar-button-container {
 .artifacts,
 .code {
   position: relative;
-}
-
-.new-chat-link .tooltip,
-.chats .tooltip,
-.projects .tooltip,
-.artifacts .tooltip,
-.code .tooltip {
-  position: absolute;
-  left: 38px;
-}
-
-.new-chat-link:hover .tooltip,
-.chats:hover .tooltip,
-.projects:hover .tooltip,
-.artifacts:hover .tooltip,
-.code:hover .tooltip {
-  opacity: 1;
-  transition: opacity 0.2s;
 }
 
 .new-chat-link-svg-container {

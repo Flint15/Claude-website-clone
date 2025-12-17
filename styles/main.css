@@ -98,6 +98,10 @@ main {
   color: var(--color-text-secondary);
 }
 
+.upgrade-paragraph {
+  cursor: pointer;
+}
+
 .welcome-section {
   display: flex;
   align-items: center;

@@ -1,0 +1,30 @@
+aside.closed .sidebar-claude-link, 
+aside.closed .navigation-label, 
+aside.closed .user-profile-infos {
+  display: none;
+  transition: display 2s;
+}
+
+aside.closed .sidebar-button-container {
+  position: fixed;
+  top: 15px;
+  left: 10px;
+}
+
+aside.closed .user-profile-pic {
+  position: fixed;
+  bottom: 10px;
+  left: 5px;
+}
+
+aside.closed .user-button {
+  border: none;
+}
+
+aside.closed .can-focus-user:hover {
+  background-color: transparent;
+}
+
+aside.closed .tooltip {
+  display: revert;
+}
