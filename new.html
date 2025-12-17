@@ -11,7 +11,7 @@
   <title>Claude Clone</title>
 </head>
 <body>
-  <aside aria-label="Main navigation">
+  <aside class="closed" aria-label="Main navigation">
     <div class="sidebar-content">
       <div class="sidebar-title">
         <a
@@ -142,7 +142,10 @@
       </header>
       <section class="input-field" aria-label="Message input">
         <div class="input-container">
-          <input type="text" placeholder="How can i help you today?">
+          <input 
+            id="input-element"
+            type="text" 
+            placeholder="How can i help you today?">
         </div>
         <div class="actions-container">
           <div class="additional-actions-container" role="toolbar">
