@@ -164,19 +164,6 @@ main {
   position: relative;
 }
 
-.tools-button-container .tooltip,
-.thinking-button-container .tooltip {
-  position: absolute;
-  bottom: -33px;
-
-  opacity: 0;
-}
-
-.can-focus-additional-action-button:hover .tooltip {
-  opacity: 1;
-  transition: opacity 0.2s;
-}
-
 .main-actions-container {
   display: flex;
   align-items: center;
