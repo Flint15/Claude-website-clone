@@ -1,3 +1,7 @@
+:root {
+  --color-bg-thirty: rgb(9, 9, 9);
+}
+
 .tooltip {
   height: 15px;
 
