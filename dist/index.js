@@ -22,16 +22,16 @@ inputElement === null || inputElement === void 0 ? void 0 : inputElement.addEven
 });
 inputElement.addEventListener('keydown', event => {
     if (event.key === 'Enter') {
-        console.log(inputElement.value);
+        const userMessage = inputElement.value;
         removeInitialContent();
-        addMessage('user', inputElement.value);
+        addMessage('user', userMessage);
     }
 });
 const messagesContainer = document.querySelector('.messages-container');
 sendButton === null || sendButton === void 0 ? void 0 : sendButton.addEventListener('click', () => {
-    console.log(inputElement.value);
+    const userMessage = inputElement.value;
     removeInitialContent();
-    addMessage('user', inputElement.value);
+    addMessage('user', userMessage);
 });
 function removeInitialContent() {
     var _a;

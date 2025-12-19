@@ -23,19 +23,19 @@ inputElement?.addEventListener('input', () => {
 
 inputElement.addEventListener('keydown', event => {
   if (event.key === 'Enter') {
-    console.log(inputElement.value)
+    const userMessage = inputElement.value
     removeInitialContent()
-    addMessage('user', inputElement.value)
+    addMessage('user', userMessage)
   }
 })
 
 const messagesContainer = document.querySelector<HTMLDivElement>('.messages-container')!
 
 sendButton?.addEventListener('click', () => {
-  console.log(inputElement.value)
-    removeInitialContent()
-    addMessage('user', inputElement.value)
-})
+  const userMessage = inputElement.value
+  removeInitialContent()
+  addMessage('user', userMessage)
+  })
 
 function removeInitialContent() {
   document.querySelector('.initial-content')?.remove()  
