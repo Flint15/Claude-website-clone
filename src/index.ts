@@ -26,6 +26,7 @@ inputElement.addEventListener('keydown', event => {
     const userMessage = inputElement.value
     removeInitialContent()
     addMessage('user', userMessage)
+    addMessage('llm', createLLMResponse(userMessage))
   }
 })
 
@@ -35,6 +36,7 @@ sendButton?.addEventListener('click', () => {
   const userMessage = inputElement.value
   removeInitialContent()
   addMessage('user', userMessage)
+  addMessage('llm', createLLMResponse(userMessage))
   })
 
 function removeInitialContent() {
@@ -48,4 +50,9 @@ function addMessage(sender: string, message: string): void {
   `
   messagesContainer.innerHTML += html
   inputElement.value = ''
+}
+
+function createLLMResponse(message: string): string {
+  const claudeResponse = message
+  return claudeResponse
 }

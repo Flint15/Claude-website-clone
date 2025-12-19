@@ -25,6 +25,7 @@ inputElement.addEventListener('keydown', event => {
         const userMessage = inputElement.value;
         removeInitialContent();
         addMessage('user', userMessage);
+        addMessage('llm', createLLMResponse(userMessage));
     }
 });
 const messagesContainer = document.querySelector('.messages-container');
@@ -32,6 +33,7 @@ sendButton === null || sendButton === void 0 ? void 0 : sendButton.addEventListe
     const userMessage = inputElement.value;
     removeInitialContent();
     addMessage('user', userMessage);
+    addMessage('llm', createLLMResponse(userMessage));
 });
 function removeInitialContent() {
     var _a;
@@ -44,6 +46,10 @@ function addMessage(sender, message) {
   `;
     messagesContainer.innerHTML += html;
     inputElement.value = '';
+}
+function createLLMResponse(message) {
+    const claudeResponse = message;
+    return claudeResponse;
 }
 export {};
 //# sourceMappingURL=index.js.map
