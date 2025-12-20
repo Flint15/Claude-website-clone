@@ -1,3 +1,4 @@
+import { chats } from "./init.js";
 const sidebarButton = document.getElementById('ts-sidebar-button');
 const sidebarElement = document.querySelector('aside');
 if (sidebarButton) {
@@ -51,5 +52,10 @@ function createLLMResponse(message) {
     const claudeResponse = message;
     return claudeResponse;
 }
-export {};
+const newChatButton = document.querySelector('.new-chat-link');
+newChatButton === null || newChatButton === void 0 ? void 0 : newChatButton.addEventListener('click', () => {
+    const chatsQuantity = chats.length;
+    chats.push({ name: `chat_${chatsQuantity}` });
+    localStorage.setItem('chats', JSON.stringify(chats));
+});
 //# sourceMappingURL=index.js.map
