@@ -56,6 +56,12 @@ main {
   cursor: pointer;
 }
 
+.initial-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .upgrade-baner {
   background-color: var(--color-bg-secondary);
   padding: 7px 13px;
