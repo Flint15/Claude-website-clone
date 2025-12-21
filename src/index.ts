@@ -1,4 +1,4 @@
-import { chats, liftMessagesFlag, messagesFlag } from "./init.js"
+import { chats, currentChatId, liftMessagesFlag, messagesFlag } from "./init.js"
 
 const sidebarButton = document.getElementById('ts-sidebar-button')
 const sidebarElement = document.querySelector('aside')
@@ -54,6 +54,17 @@ function addMessage(sender: string, message: string): void {
   `
   messagesContainer.innerHTML += html
   inputElement.value = ''
+
+  chats.forEach(chat => {
+    if (chat.id === currentChatId) {
+      console.log(chat)
+      chat.messages.push({
+        sender,
+        message
+      })
+    }
+  })
+  localStorage.setItem('chats', JSON.stringify(chats))
 }
 
 function createLLMResponse(message: string): string {

@@ -1,4 +1,4 @@
-import { chats, liftMessagesFlag, messagesFlag } from "./init.js";
+import { chats, currentChatId, liftMessagesFlag, messagesFlag } from "./init.js";
 const sidebarButton = document.getElementById('ts-sidebar-button');
 const sidebarElement = document.querySelector('aside');
 if (sidebarButton) {
@@ -47,6 +47,16 @@ function addMessage(sender, message) {
   `;
     messagesContainer.innerHTML += html;
     inputElement.value = '';
+    chats.forEach(chat => {
+        if (chat.id === currentChatId) {
+            console.log(chat);
+            chat.messages.push({
+                sender,
+                message
+            });
+        }
+    });
+    localStorage.setItem('chats', JSON.stringify(chats));
 }
 function createLLMResponse(message) {
     const claudeResponse = message;
