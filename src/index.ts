@@ -63,7 +63,7 @@ const newChatButton = document.querySelector<HTMLButtonElement>('.new-chat-link'
 newChatButton?.addEventListener('click', () => {
   const chatsQuantity = chats.length
 
-  chats.push({ name: `chat_${chatsQuantity}`})
+  chats.push({ name: `chat_${chatsQuantity}`, id: crypto.randomUUID()})
 
   localStorage.setItem('chats', JSON.stringify(chats))
 })
