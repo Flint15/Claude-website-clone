@@ -14,7 +14,11 @@ export function liftMessagesFlag() {
     localStorage.setItem('messagesFlag', 'true');
 }
 const url = new URLSearchParams(window.location.search);
-export const chatId = url.get('chat_id');
+export const currentChatId = url.get('chat_id')
+    ||
+        localStorage.getItem('currentNewChatId')
+    ||
+        chats[0]?.id;
 const chatsContainer = document.querySelector('.chats-container');
 let html = '';
 chats.toReversed().forEach(chat => {

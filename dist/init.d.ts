@@ -10,6 +10,6 @@ interface Chats {
 export declare const chats: Chats[];
 export declare let messagesFlag: boolean;
 export declare function liftMessagesFlag(): void;
-export declare const chatId: string | null;
+export declare const currentChatId: string | undefined;
 export {};
 //# sourceMappingURL=init.d.ts.map

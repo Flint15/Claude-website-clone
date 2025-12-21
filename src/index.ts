@@ -69,6 +69,9 @@ newChatButton?.addEventListener('click', () => {
     return
   }
   
-  chats.push({ name: `chat_${chatsQuantity}`, id: crypto.randomUUID(), messages: []})
+  const chatId = crypto.randomUUID()
+
+  chats.push({ id: chatId, name: `chat_${chatsQuantity}`, messages: []})
   localStorage.setItem('chats', JSON.stringify(chats))
+  localStorage.setItem('currentNewChatId', chatId)
 })

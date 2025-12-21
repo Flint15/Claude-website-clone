@@ -147,7 +147,7 @@ aside .sidebar-button-container {
   flex-direction: column;
 }
 
-.chat {
+a.chat {
   padding: 8px;
 
   color: var(--color-text-primary);
