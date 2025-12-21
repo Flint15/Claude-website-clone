@@ -23,7 +23,9 @@ const chatsContainer = document.querySelector('.chats-container');
 let html = '';
 chats.toReversed().forEach(chat => {
     html += `
-    <a class="chat can-focus" href="./new.html?chat_id=${chat.id}">
+    <a
+      class="chat can-focus ${chat.id === currentChatId ? 'current-chat' : ''}"
+      href="./new.html?chat_id=${chat.id}">
       ${chat.name}
     </a>
   `;
