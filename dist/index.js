@@ -1,4 +1,4 @@
-import { chats } from "./init.js";
+import { chats, liftMessagesFlag } from "./init.js";
 const sidebarButton = document.getElementById('ts-sidebar-button');
 const sidebarElement = document.querySelector('aside');
 if (sidebarButton) {
@@ -41,6 +41,7 @@ function removeInitialContent() {
     (_a = document.querySelector('.initial-content')) === null || _a === void 0 ? void 0 : _a.remove();
 }
 function addMessage(sender, message) {
+    liftMessagesFlag();
     const html = `
   <div class="${sender}-message">${message}</div>
   <div class="stretch-container"></div>
