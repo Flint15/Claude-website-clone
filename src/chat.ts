@@ -6,9 +6,11 @@ const inputElement = document.querySelector<HTMLInputElement>('#input-element')
 const sendButton = document.querySelector('.send-button')
 const sendSVG = document.querySelector<SVGPathElement>('.arrow-icon path')
 const messagesContainer = document.querySelector<HTMLDivElement>('.messages-container')!
+const chatSettings = document.querySelector('chat-settings')
 
 addInputElementListeners()
 addSendButtonListener()
+addChatSettingsListener()
 
 function addInputElementListeners() {
   inputElement?.addEventListener('input', () => {
@@ -34,6 +36,12 @@ function addSendButtonListener() {
     const userMessage = inputElement?.value
       displayMessages(userMessage as string)
     })
+}
+
+function addChatSettingsListener() {
+  chatSettings?.addEventListener('click', () => {
+    console.log('Love')
+  })
 }
 
 function displayMessages(message: string) {

@@ -148,7 +148,15 @@ aside .sidebar-button-container {
   gap: 1px;
 }
 
+.chat-container {
+  display: flex;
+}
+
 a.chat {
+  position: relative;
+
+  width: 100%;
+
   padding: 8px;
 
   color: var(--color-text-primary);
@@ -166,6 +174,29 @@ a.chat.current-chat {
 .chat:hover {
   color: var(--color-text-thirty);
   transition: color 0.2s;
+}
+
+.chat-settings {
+  background-color: transparent;
+  border: none;
+
+  opacity: 0;
+
+  cursor: pointer;
+}
+
+.chat-settings.can-focus:hover {
+  opacity: 1;
+}
+
+.chat-container:has(.chat:hover){
+  background-color: var(--color-bg-secondary);
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.chat-container:has(.chat:hover) .chat-settings{
+  opacity: 1;
 }
 
 .can-focus:hover {

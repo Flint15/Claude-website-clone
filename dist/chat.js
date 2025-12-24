@@ -5,8 +5,10 @@ const inputElement = document.querySelector('#input-element');
 const sendButton = document.querySelector('.send-button');
 const sendSVG = document.querySelector('.arrow-icon path');
 const messagesContainer = document.querySelector('.messages-container');
+const chatSettings = document.querySelector('chat-settings');
 addInputElementListeners();
 addSendButtonListener();
+addChatSettingsListener();
 function addInputElementListeners() {
     inputElement?.addEventListener('input', () => {
         if (inputElement.value && !sendButton?.classList.contains('active')) {
@@ -31,6 +33,11 @@ function addSendButtonListener() {
     sendButton?.addEventListener('click', () => {
         const userMessage = inputElement?.value;
         displayMessages(userMessage);
+    });
+}
+function addChatSettingsListener() {
+    chatSettings?.addEventListener('click', () => {
+        console.log('Love');
     });
 }
 function displayMessages(message) {
