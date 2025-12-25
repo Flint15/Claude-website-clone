@@ -1,4 +1,4 @@
-import { createNewChat, storeMessage } from "./chats.js"
+import { changeChatName, createNewChat, storeMessage } from "./chats.js"
 import { liftMessagesFlag, messagesFlag } from "./flags.js"
 import { currentChatId } from "./init.js"
 import { createLLMResponse } from "./llm.js"
@@ -8,6 +8,9 @@ const sendButton = document.querySelector('.send-button')
 const sendSVG = document.querySelector<SVGPathElement>('.arrow-icon path')
 const messagesContainer = document.querySelector<HTMLDivElement>('.messages-container')!
 const renameOverlay = document.querySelector('.rename-overlay-container')
+const renameInput = document.querySelector<HTMLInputElement>('.rename-input')
+
+let currentRenameChatId: string
 
 addInputElementListeners()
 addSendButtonListener()
@@ -59,6 +62,10 @@ export function addRenameChatListener() {
   document.querySelectorAll('.rename-chat-button')
     .forEach(button => {
       button.addEventListener('click', () => {
+        const currentButton = button as HTMLElement
+        
+        currentRenameChatId = currentButton.dataset.chatId as string
+        
         displayRenameOverlay()      
       })
     })
@@ -72,6 +79,11 @@ function displayRenameOverlay() {
 function addRenameChatButtonsListeners() {
   document.querySelector('.cancel-rename')
     ?.addEventListener('click', () => {
+      renameOverlay?.classList.remove('active')
+    })
+  document.querySelector('.save-rename')
+    ?.addEventListener('click', () => {
+      changeChatName(currentRenameChatId, renameInput?.value as string)
       renameOverlay?.classList.remove('active')
     })
 }
