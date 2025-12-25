@@ -1,6 +1,6 @@
 import { changeChatName, createNewChat, storeMessage } from "./chats.js";
 import { liftMessagesFlag, messagesFlag } from "./flags.js";
-import { currentChatId } from "./init.js";
+import { currentChatId, deleteChatFromChats } from "./init.js";
 import { createLLMResponse } from "./llm.js";
 const inputElement = document.querySelector('#input-element');
 const sendButton = document.querySelector('.send-button');
@@ -53,7 +53,7 @@ export function addChatSettingsListener() {
     console.log('Chat settings listeners were added');
 }
 export function addRenameChatListener() {
-    document.querySelectorAll('.rename-chat-button')
+    document.querySelectorAll('#rename-chat-button')
         .forEach(button => {
         button.addEventListener('click', () => {
             const currentButton = button;
@@ -62,6 +62,15 @@ export function addRenameChatListener() {
         });
     });
     console.log('Listeners for rename buttons were added');
+}
+export function addDeleteChatListener() {
+    document.querySelectorAll('#delete-chat-button')
+        .forEach(button => {
+        button.addEventListener('click', () => {
+            const currentButton = button;
+            deleteChatFromChats(currentButton.dataset.chatId);
+        });
+    });
 }
 function displayRenameOverlay() {
     renameOverlay?.classList.add('active');
