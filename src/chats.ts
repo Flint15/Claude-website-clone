@@ -82,7 +82,6 @@ export function renderChats(action: string = '', chatsToRender: Chat[] = chats) 
   addDeleteChatListener()
   addToProjectButtonListener()
   addRecentsChatsLabel()
-  addStarChatListener()
 }
 
 export function changeChatName(chatId: string, newChatName: string) {

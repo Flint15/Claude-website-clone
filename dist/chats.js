@@ -68,7 +68,6 @@ export function renderChats(action = '', chatsToRender = chats) {
     addDeleteChatListener();
     addToProjectButtonListener();
     addRecentsChatsLabel();
-    addStarChatListener();
 }
 export function changeChatName(chatId, newChatName) {
     chats.forEach(chat => {
