@@ -1,7 +1,7 @@
 import { renderChats, renderMessages, storeChats } from "./chats.js"
 import { liftMessagesFlag } from "./flags.js"
 
-interface Chat{
+export interface Chat{
   chatId: string
   name: string
   messages: Message[]

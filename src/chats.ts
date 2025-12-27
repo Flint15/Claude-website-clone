@@ -1,5 +1,12 @@
-import { addChatSettingsListener, addDeleteChatListener, addRenameChatListener, addToProjectButtonListener, removeInitialContent, renderMessage } from "./chat.js"
-import { chats, currentChatId, changeCurrentChatId } from "./init.js"
+import { 
+  addChatSettingsListener, addDeleteChatListener,
+  addRenameChatListener, addToProjectButtonListener,
+  removeInitialContent, renderMessage 
+} from "./chat.js"
+import { 
+  chats, currentChatId,
+  changeCurrentChatId, type Chat
+} from "./init.js"
 
 const chatsContainer = document.querySelector('.chats-container')
 const recentsChatsLabel = document.querySelector('.recents-chats-label')
@@ -22,13 +29,13 @@ function storedNewChat(chatId: string, chatName: string) {
   storeChats()
 }
 
-export function renderChats(action: string = '') {
-  if (chats.length === 0 && action === '') {
+export function renderChats(action: string = '', chatsToRender: Chat[] = chats) {
+  if (chatsToRender.length === 0 && action === '') {
     return
   }
   
   let html = ``
-  chats.toReversed().forEach(chat => {
+  chatsToRender.toReversed().forEach(chat => {
     html += `
       <div class="chat-container ${chat.chatId === currentChatId  ? 'current-chat' : ''}">
         <a
@@ -40,7 +47,9 @@ export function renderChats(action: string = '') {
           <svg xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="#F3F3F3"><path d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z"/></svg>
         </button>
         <div class="dropdown-menu dropdown-menu-chat-id-${chat.chatId}">
-          <button class="drowpdown-menu-item-button can-focus">
+          <button
+            class="drowpdown-menu-item-button can-focus" id="star-chat-button"
+            data-chat-id="${chat.chatId}">
             <svg width="21" height="21" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="shrink-0" aria-hidden="true"><path d="M9.15819 2.70793C9.57195 2.05232 10.5885 2.09917 10.916 2.84856L12.6133 6.7343L16.876 7.12492C17.7533 7.20551 18.1052 8.29883 17.4394 8.8759L14.2334 11.6513L15.1738 15.7616C15.3568 16.5622 14.5601 17.2054 13.8369 16.9179L13.6943 16.8476L9.99998 14.6845L6.30565 16.8476C5.54968 17.2898 4.63094 16.6155 4.82615 15.7616L5.76561 11.6513L2.56053 8.8759C1.89457 8.2988 2.24642 7.20536 3.12401 7.12492L7.38572 6.7343L9.08397 2.84856L9.15819 2.70793ZM8.18358 7.40617C8.1197 7.55227 7.9907 7.65804 7.83787 7.69328L7.77147 7.70403L3.21483 8.12004L6.64744 11.0927C6.78692 11.2137 6.84876 11.4019 6.8076 11.582L5.80076 15.9843L9.74705 13.6747L9.8076 13.6445C9.95115 13.5846 10.1165 13.5949 10.2529 13.6747L14.1992 15.9843L13.1924 11.582C13.1512 11.4019 13.2129 11.2137 13.3525 11.0927L16.7851 8.12004L12.2285 7.70403C12.0472 7.68733 11.8894 7.57301 11.8164 7.40617L9.99998 3.24895L8.18358 7.40617Z"></path></svg>
             <span class="drowpdown-menu-item-label">Star</span>
           </button>
@@ -73,6 +82,7 @@ export function renderChats(action: string = '') {
   addDeleteChatListener()
   addToProjectButtonListener()
   addRecentsChatsLabel()
+  addStarChatListener()
 }
 
 export function changeChatName(chatId: string, newChatName: string) {
