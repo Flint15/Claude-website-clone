@@ -57,7 +57,8 @@ aside .sidebar-button-container {
 
   padding: 0px 8px;
 
-  height: 100%;
+  flex: 1;
+  min-height: 0;
 }
 
 .sidebar-title {
