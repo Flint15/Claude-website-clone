@@ -2,6 +2,7 @@ import { addChatSettingsListener, addDeleteChatListener, addRenameChatListener, 
 import { chats, currentChatId, changeCurrentChatId } from "./init.js"
 
 const chatsContainer = document.querySelector('.chats-container')
+const recentsChatsLabel = document.querySelector('.recents-chats-label')
 
 export function createNewChat(chatName: string) {
   const chatId = crypto.randomUUID()
@@ -21,8 +22,8 @@ function storedNewChat(chatId: string, chatName: string) {
   storeChats()
 }
 
-export function renderChats() {
-  if (chats.length === 0) {
+export function renderChats(action: string = '') {
+  if (chats.length === 0 && action === '') {
     return
   }
   
@@ -71,6 +72,7 @@ export function renderChats() {
   addRenameChatListener()
   addDeleteChatListener()
   addToProjectButtonListener()
+  addRecentsChatsLabel()
 }
 
 export function changeChatName(chatId: string, newChatName: string) {
@@ -110,4 +112,15 @@ export function renderMessages(currentChatId: string) {
       })
     }
   })
+}
+
+export function addRecentsChatsLabel() {
+  if (chats.length === 0) {
+    recentsChatsLabel?.classList.remove('active')    
+    return
+  }
+  if (recentsChatsLabel?.classList.contains('active')) {
+    return
+  }
+  recentsChatsLabel?.classList.add('active')
 }

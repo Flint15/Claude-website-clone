@@ -28,7 +28,7 @@ renderChats()
 export function deleteChatFromChats(chatId: string) {
   chats = chats.filter(chat => chat.chatId !== chatId)
   console.log(`Chat with id-"${chatId}" was deleted`)
-  renderChats()
+  renderChats('delete chat')
   storeChats()
 
   if (currentChatId === chatId) {

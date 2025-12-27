@@ -13,7 +13,7 @@ renderChats();
 export function deleteChatFromChats(chatId) {
     chats = chats.filter(chat => chat.chatId !== chatId);
     console.log(`Chat with id-"${chatId}" was deleted`);
-    renderChats();
+    renderChats('delete chat');
     storeChats();
     if (currentChatId === chatId) {
         window.location.replace('./new.html');

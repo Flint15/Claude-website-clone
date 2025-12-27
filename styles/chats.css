@@ -25,6 +25,12 @@
   margin: 4px 0px 0px;
 
   user-select: none;
+
+  display: none;
+}
+
+.recents-chats-label.active {
+  display: block;
 }
 
 .sidebar-content .chats {

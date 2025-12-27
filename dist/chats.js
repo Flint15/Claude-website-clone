@@ -1,6 +1,7 @@
 import { addChatSettingsListener, addDeleteChatListener, addRenameChatListener, addToProjectButtonListener, removeInitialContent, renderMessage } from "./chat.js";
 import { chats, currentChatId, changeCurrentChatId } from "./init.js";
 const chatsContainer = document.querySelector('.chats-container');
+const recentsChatsLabel = document.querySelector('.recents-chats-label');
 export function createNewChat(chatName) {
     const chatId = crypto.randomUUID();
     window.history.replaceState({}, "", `?chat-id=${chatId}`);
@@ -16,8 +17,8 @@ function storedNewChat(chatId, chatName) {
     });
     storeChats();
 }
-export function renderChats() {
-    if (chats.length === 0) {
+export function renderChats(action = '') {
+    if (chats.length === 0 && action === '') {
         return;
     }
     let html = ``;
@@ -64,6 +65,7 @@ export function renderChats() {
     addRenameChatListener();
     addDeleteChatListener();
     addToProjectButtonListener();
+    addRecentsChatsLabel();
 }
 export function changeChatName(chatId, newChatName) {
     chats.forEach(chat => {
@@ -99,5 +101,15 @@ export function renderMessages(currentChatId) {
             });
         }
     });
+}
+export function addRecentsChatsLabel() {
+    if (chats.length === 0) {
+        recentsChatsLabel?.classList.remove('active');
+        return;
+    }
+    if (recentsChatsLabel?.classList.contains('active')) {
+        return;
+    }
+    recentsChatsLabel?.classList.add('active');
 }
 //# sourceMappingURL=chats.js.map
