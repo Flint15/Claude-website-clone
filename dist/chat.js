@@ -1,6 +1,6 @@
-import { changeChatName, createNewChat, storeMessage } from "./chats.js";
+import { changeChatName, createNewChat, renderChats, storeChats, storeMessage } from "./chats.js";
 import { liftMessagesFlag, messagesFlag } from "./flags.js";
-import { currentChatId, deleteChatFromChats } from "./init.js";
+import { chats, currentChatId, deleteChatFromChats } from "./init.js";
 import { createLLMResponse } from "./llm.js";
 const inputElement = document.querySelector('#input-element');
 const sendButton = document.querySelector('.send-button');
@@ -82,6 +82,25 @@ export function addToProjectButtonListener() {
           `);
         });
     });
+}
+export function addStarredChatsListener() {
+    document.querySelectorAll('#star-chat-button')
+        .forEach(button => {
+        button.addEventListener('click', () => {
+            const currentButton = button;
+            const starredChatId = currentButton.dataset.chatId;
+            makeChatStarred(starredChatId);
+        });
+    });
+}
+function makeChatStarred(starredChatId) {
+    for (let i = 0; i < chats.length; i++) {
+        if (chats[i]?.chatId === starredChatId) {
+            chats[i].starred = true;
+        }
+    }
+    storeChats();
+    renderChats();
 }
 function displayRenameOverlay() {
     renameOverlay?.classList.add('active');

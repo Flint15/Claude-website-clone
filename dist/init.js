@@ -19,6 +19,8 @@ export function deleteChatFromChats(chatId) {
         window.location.replace('./new.html');
     }
 }
+export function addStarredChat(starredChat) {
+}
 export function changeCurrentChatId(chatId) {
     currentChatId = chatId;
 }

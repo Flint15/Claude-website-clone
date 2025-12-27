@@ -16,20 +16,30 @@
   --color-text-btn-save-rename: rgb(0, 0, 0);
 }
 
-.recents-chats-label {
+.type-of-chats-label {
   font-size: 12px;
   font-family: sans-serif;
   color: var(--color-text-secondary);
-
+  
   padding: 0px 8px 8px;
   margin: 4px 0px 0px;
-
+  
   user-select: none;
+}
 
+.recents-chats-label {
   display: none;
 }
 
 .recents-chats-label.active {
+  display: block;
+}
+
+.starred-chats-label {
+  display: none;
+}
+
+.starred-chats-label.active {
   display: block;
 }
 

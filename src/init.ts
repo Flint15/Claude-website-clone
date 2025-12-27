@@ -5,6 +5,7 @@ export interface Chat{
   chatId: string
   name: string
   messages: Message[]
+  starred: boolean
 }
 
 interface Message{
@@ -27,6 +28,7 @@ renderChats()
 
 export function deleteChatFromChats(chatId: string) {
   chats = chats.filter(chat => chat.chatId !== chatId)
+
   console.log(`Chat with id-"${chatId}" was deleted`)
   renderChats('delete chat')
   storeChats()
@@ -34,6 +36,10 @@ export function deleteChatFromChats(chatId: string) {
   if (currentChatId === chatId) {
     window.location.replace('./new.html')
   }
+}
+
+export function addStarredChat(starredChat: Chat[]) {
+
 }
 
 export function changeCurrentChatId(chatId: string) {

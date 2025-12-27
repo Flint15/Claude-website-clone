@@ -1,6 +1,6 @@
-import { changeChatName, createNewChat, storeMessage } from "./chats.js"
+import { changeChatName, createNewChat, renderChats, storeChats, storeMessage } from "./chats.js"
 import { liftMessagesFlag, messagesFlag } from "./flags.js"
-import { currentChatId, deleteChatFromChats } from "./init.js"
+import { chats, currentChatId, deleteChatFromChats } from "./init.js"
 import { createLLMResponse } from "./llm.js"
 
 const inputElement = document.querySelector<HTMLInputElement>('#input-element')
@@ -91,6 +91,28 @@ export function addToProjectButtonListener() {
           `)
       })
     })
+}
+
+export function addStarredChatsListener() {
+  document.querySelectorAll('#star-chat-button')
+    .forEach(button => {
+      button.addEventListener('click', () => {
+        const currentButton = button as HTMLElement
+        const starredChatId = currentButton.dataset.chatId as string
+
+        makeChatStarred(starredChatId)
+      })
+    })
+}
+
+function makeChatStarred(starredChatId: string) {
+  for (let i = 0; i < chats.length; i++) {
+    if (chats[i]?.chatId === starredChatId) {
+      chats[i]!.starred = true
+    }
+  }
+  storeChats()
+  renderChats()
 }
 
 function displayRenameOverlay() {

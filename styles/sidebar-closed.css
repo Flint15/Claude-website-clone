@@ -2,7 +2,7 @@ aside.closed .sidebar-claude-link,
 aside.closed .recents-chats-label, 
 aside.closed .navigation-label, 
 aside.closed .user-profile-infos,
-aside.closed .chats-container {
+aside.closed .chats {
   display: none;
   transition: display 2s;
 }
