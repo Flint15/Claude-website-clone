@@ -35,10 +35,12 @@ A front-end clone of the Claude AI. Project replicate the visual design and basi
 
 ### Installation
 
-1. Install Node.js
-2. Clone or download the repo
-3. Install dependecies
+1. Clone or download the repo
+2. Copy `.env.example` to `.env`
+3. Add your Anthropic API key to `.env`
+4. Install Node.js
+5. Install dependecies
   `npm install`
-4. Compile TypeScript
+6. Compile TypeScript
   `npm run build`
-5. Open the `new.html` file
+7. Open the `new.html` file
