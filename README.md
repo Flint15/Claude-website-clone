@@ -20,27 +20,68 @@ A front-end clone of the Claude AI. Project replicate the visual design and basi
   * Dropdown menus for chat settings
   * Overlay for chat renaming
 
-# Technologies
+## Technologies
+
+### Frontend
 
 - HTML
 - CSS
 - TypeScript
 - localStorage
 
+### Backend
+
+- Python
+- Flask
+- python-dotenv
+
 ## Getting started
 
 ### Prerequisites
 
 * Node.js and npm (for TypeScript compilation)
+* Python 3.7+
 
 ### Installation
 
 1. Clone or download the repo
-2. Copy `.env.example` to `.env`
-3. Add your Anthropic API key to `.env`
-4. Install Node.js
-5. Install dependecies
+2. **Frontend Setup**
+
+  Install Node.js dependecies:
+
   `npm install`
-6. Compile TypeScript
+
+3. **Backend Setup**
+
+  Navigate to backend folder:
+
+  `cd backend`
+  
+  Create virtual environment:
+  
+  `python -m venv venv`
+
+  Activate virtual environment:
+
+  `venv\Scripts\activate`
+
+  Install Python dependencies:
+  
+  `pip install -r requirements.txt`
+
+4. **Configure API key**
+
+  Add your Anthropic API key to `backend/.env`:
+
+  `ANTHROPIC_API_KEY=your_key_here`
+
+### Run the project
+
+1. **Start the backend (currently useless :) )**
+2. **Start the frontend** (in another terminal):
+
+  Compile TypeScript:
+
   `npm run build`
-7. Open the `new.html` file
+
+  Then open `new.html` in your browser
