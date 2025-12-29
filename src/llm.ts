@@ -1,28 +1,21 @@
-export function createLLMResponse(message: string): Promise<string> {  
-  return getResponse().then(response => {
-    console.log('\ndata were getted')
-    return response as string
-  })
-}
-
-async function getResponse() {
+export async function createLLMResponse(message: string): Promise<string> {  
   try {
-    console.log('\nfetching data...')
-    const response = await fetch('http://127.0.0.1:5000/he11')
+    const response = await fetch('http://127.0.0.1:5000/chat', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ message: message})
+    })
     if (!response.ok) {
       throw new Error(`HTTP error status: ${response.status}`)
     }
-
-    const contentType = response.headers.get('content-type')
-    if (contentType && contentType.includes('application/json')) {
-      return 'some json)'
-      //return await response.json()
-    } else {
-      return await response.text()
-    }
-
+  
+    const data = await response.json()
+    return data.response
+  
   } catch (error) {
-    console.log(`Error fetching data:\n ${error}`)
-    return 'Error occured'
+    console.error(`Error fetching data:\n ${error}`)
+    return 'Bruh... i couldn\'t get a response...;('
   }
 }

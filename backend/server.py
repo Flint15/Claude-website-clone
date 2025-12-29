@@ -1,8 +1,46 @@
-from flask import Flask
+from flask import Flask, request, jsonify
 from flask_cors import CORS
+import anthropic
+import os
+from dotenv import load_dotenv
 
 app = Flask(__name__)
 CORS(app)
+
+load_dotenv()
+api_key = os.getenv('ANTHROPIC_API_KEY')
+
+client = anthropic.Anthropic(
+  api_key=api_key
+)
+
+@app.route('/chat', methods=['POST'])
+def chat():
+  try:
+    data = request.get_json()
+    user_message: str = data.get('message', '')
+
+    if not user_message:
+      return jsonify({'error': 'No message provided'}), 400
+    
+    message = client.messages.create(
+      model='claude-haiku-4-5-20251001',
+      max_tokens=1024,
+      messages=[
+        {'role': 'user', 'content': user_message}
+      ]
+    )
+
+    response_text = message.content[0].text
+
+    return jsonify({
+      'response': response_text,
+    })
+  
+  except anthropic.APIError as e:
+    return jsonify({'error': f'API Error: {str(e)}'}), 500
+  except Exception as e:
+    return jsonify({'error': str(e)}), 500
 
 @app.route('/')
 def home():
