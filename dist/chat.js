@@ -117,7 +117,7 @@ function addRenameChatButtonsListeners() {
         renameOverlay?.classList.remove('active');
     });
 }
-function displayMessages(message) {
+async function displayMessages(message) {
     console.log(currentChatId);
     if (!messagesFlag) {
         liftMessagesFlag();
@@ -128,8 +128,7 @@ function displayMessages(message) {
     else {
         console.log('Messages were already sended before');
     }
-    console.log(currentChatId);
-    const llmResponse = createLLMResponse(message);
+    const llmResponse = await createLLMResponse(message);
     renderMessage(message);
     renderMessage(llmResponse, 'llm');
     storeMessage('user', message);

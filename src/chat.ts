@@ -132,7 +132,7 @@ function addRenameChatButtonsListeners() {
     })
 }
 
-function displayMessages(message: string) {
+async function displayMessages(message: string) {
   console.log(currentChatId)
   if (!messagesFlag) {
     liftMessagesFlag()
@@ -143,9 +143,7 @@ function displayMessages(message: string) {
     console.log('Messages were already sended before')
   }
   
-  console.log(currentChatId)
-
-  const llmResponse = createLLMResponse(message)
+  const llmResponse = await createLLMResponse(message)
   renderMessage(message)
   renderMessage(llmResponse, 'llm')
 
