@@ -11,6 +11,10 @@
   flex-direction: column;
 }
 
+.messages-container p {
+  margin: 0px;
+}
+
 .user-message,
 .stretch-container {
   align-self: flex-end;
