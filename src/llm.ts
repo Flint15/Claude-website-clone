@@ -1,12 +1,27 @@
+import { chats, currentChatId } from "./init.js"
+
 interface Message {
   'role': string
   'content': string
 }
 
-const conversationHistory: Message[] = []
+let conversationHistory: Message[] = []
+let initialized = false
+
+function initializeConversationHistory() {
+  if (initialized) return
+
+  if (currentChatId) {
+    const currentChat = chats.find(chat => chat.chatId === currentChatId)
+    conversationHistory = [...currentChat!.messages]
+  }
+  initialized = true
+}
 
 export async function createLLMResponse(message: string): Promise<string> {  
   try {
+    initializeConversationHistory()
+
     conversationHistory.push({
       'role': 'user', 'content': message
     })

@@ -1,8 +1,7 @@
 import { renderChats, renderMessages, storeChats } from "./chats.js";
 import { liftMessagesFlag } from "./flags.js";
 const url = new URLSearchParams(window.location.search);
-export let currentChatId;
-currentChatId = url.get('chat-id') || '';
+export let currentChatId = url.get('chat-id') || '';
 console.log(currentChatId);
 const storedChats = localStorage.getItem('chats');
 export let chats = storedChats

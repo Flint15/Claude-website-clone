@@ -135,7 +135,6 @@ function addRenameChatButtonsListeners() {
 }
 
 async function displayMessages(message: string) {
-  console.log(currentChatId)
   if (!messagesFlag) {
     liftMessagesFlag()
     removeInitialContent()
@@ -149,8 +148,11 @@ async function displayMessages(message: string) {
   renderMessage(message)
   renderMessage(assistantResponse, 'assistant')
 
+  console.log(message)
+  console.log(chats, currentChatId)
   storeMessage('user', message)
   storeMessage('assistant', assistantResponse)
+  console.log(chats, currentChatId)
 }
 
 export function removeInitialContent() {

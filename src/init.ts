@@ -14,8 +14,7 @@ interface Message{
 }
 
 const url = new URLSearchParams(window.location.search)
-export let currentChatId: string
-currentChatId = url.get('chat-id') || ''
+export let currentChatId: string = url.get('chat-id') || ''
 console.log(currentChatId)
 
 const storedChats = localStorage.getItem('chats')
