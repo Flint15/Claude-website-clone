@@ -18,17 +18,15 @@ client = anthropic.Anthropic(
 def chat():
   try:
     data = request.get_json()
-    user_message: str = data.get('message', '')
+    conversation: str = data.get('message', '')
 
-    if not user_message:
+    if not conversation:
       return jsonify({'error': 'No message provided'}), 400
     
     message = client.messages.create(
       model='claude-haiku-4-5-20251001',
       max_tokens=1024,
-      messages=[
-        {'role': 'user', 'content': user_message}
-      ]
+      messages=conversation
     )
 
     response_text = message.content[0].text
