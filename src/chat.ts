@@ -2,6 +2,8 @@ import { changeChatName, createNewChat, renderChats, storeChats, storeMessage } 
 import { liftMessagesFlag, messagesFlag } from "./flags.js"
 import { chats, currentChatId, deleteChatFromChats } from "./init.js"
 import { createLLMResponse } from "./llm.js"
+// @ts-expect-error - CDN import
+import { marked } from 'https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js'
 
 const inputElement = document.querySelector<HTMLInputElement>('#input-element')
 const sendButton = document.querySelector('.send-button')
@@ -158,7 +160,7 @@ export function removeInitialContent() {
 
 export function renderMessage(message: string, sender: string = 'user') {
   const html = `
-  <div class="${sender}-message">${message}</div>
+  <div class="${sender}-message">${marked.parse(message)}</div>
   <div class="stretch-container"></div>
   `
   messagesContainer.innerHTML += html
