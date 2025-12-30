@@ -126,13 +126,13 @@ export function changeChatName(chatId, newChatName) {
         }
     });
 }
-export function storeMessage(sender, message) {
+export function storeMessage(role, content) {
     console.log(chats, currentChatId);
     chats.forEach(chat => {
         if (chat.chatId === currentChatId) {
             chat.messages.push({
-                sender,
-                message
+                role,
+                content
             });
         }
     });
@@ -146,7 +146,7 @@ export function renderMessages(currentChatId) {
     chats.forEach(chat => {
         if (chat.chatId === currentChatId) {
             chat.messages.forEach(message => {
-                renderMessage(message.message, message.sender);
+                renderMessage(message.content, message.role);
             });
         }
     });

@@ -9,8 +9,8 @@ export interface Chat{
 }
 
 interface Message{
-  sender: string
-  message: string
+  role: string
+  content: string
 }
 
 const url = new URLSearchParams(window.location.search)

@@ -4,5 +4,5 @@ export declare function addDeleteChatListener(): void;
 export declare function addToProjectButtonListener(): void;
 export declare function addStarredChatsListener(): void;
 export declare function removeInitialContent(): void;
-export declare function renderMessage(message: string, sender?: string): void;
+export declare function renderMessage(content: string, role?: string): void;
 //# sourceMappingURL=chat.d.ts.map

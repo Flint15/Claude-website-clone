@@ -145,12 +145,12 @@ async function displayMessages(message: string) {
     console.log('Messages were already sended before')
   }
   
-  const llmResponse = await createLLMResponse(message)
+  const assistantResponse = await createLLMResponse(message)
   renderMessage(message)
-  renderMessage(llmResponse, 'llm')
+  renderMessage(assistantResponse, 'assistant')
 
   storeMessage('user', message)
-  storeMessage('llm', llmResponse)
+  storeMessage('assistant', assistantResponse)
 }
 
 export function removeInitialContent() {
@@ -158,9 +158,9 @@ export function removeInitialContent() {
   console.log('Initial content was deleted')
 }
 
-export function renderMessage(message: string, sender: string = 'user') {
+export function renderMessage(content: string, role: string = 'user') {
   const html = `
-  <div class="${sender}-message">${marked.parse(message)}</div>
+  <div class="${role}-message">${marked.parse(content)}</div>
   <div class="stretch-container"></div>
   `
   messagesContainer.innerHTML += html

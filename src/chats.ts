@@ -141,13 +141,13 @@ export function changeChatName(chatId: string, newChatName: string) {
   })
 }
 
-export function storeMessage(sender: string, message: string) {
+export function storeMessage(role: string, content: string) {
   console.log(chats, currentChatId)
   chats.forEach(chat => {
     if (chat.chatId === currentChatId) {
       chat.messages.push({
-        sender,
-        message
+        role,
+        content
       })
     }
   })
@@ -163,7 +163,7 @@ export function renderMessages(currentChatId: string) {
   chats.forEach(chat => {
     if (chat.chatId === currentChatId) {
       chat.messages.forEach(message => {
-        renderMessage(message.message, message.sender)
+        renderMessage(message.content, message.role)
       })
     }
   })

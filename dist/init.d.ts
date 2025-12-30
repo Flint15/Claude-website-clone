@@ -5,8 +5,8 @@ export interface Chat {
     starred: boolean;
 }
 interface Message {
-    sender: string;
-    message: string;
+    role: string;
+    content: string;
 }
 export declare let currentChatId: string;
 export declare let chats: Chat[];
