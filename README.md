@@ -161,4 +161,4 @@ Here's how you can help:
 ```
 6. **Open a Pull Request**
 
-**Made with 愛 by [Your Name]**
+**Made with 愛 by Vladimir**
