@@ -112,12 +112,18 @@ main {
   padding: 50px;
 }
 
-.content.messages-filled .input-field {
+.content.messages-filled .input-field-container {
   position: fixed;
-  bottom: 10px;
+  bottom: 0px;
 
+  padding-bottom: 10px;
+
+  background-color: var(--color-bg-primary);
+}
+
+.content.messages-filled .input-field {
   border: 1px solid var(--color-border-primary);
-
+  
   width: 720px;
 }
 
