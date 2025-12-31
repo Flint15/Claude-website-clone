@@ -1,87 +1,164 @@
 # Claude Clone
 *Inspired by [Claude](https://claude.ai/new)*
 
-A front-end clone of the Claude AI. Project replicate the visual design and basic functionality of Claude's chat interface.
+Recreation of the Anthropic's Claude AI chat interface. Build with TypeScript and Flask
+
+## 🎯 Overview
+
+This project is a **full-stack clone of the Claude AI chat interface**. Created to practice and learn modern web development and providing a functional chat application.
+(Also because it's interesting and fun :) ) 
 
 ## Features
 
-- **Chat Interface**
-- **Chat Managment:**
-  * Create new chats
-  * Rename existing chats
-  * Delete chats
-  * Chats history
+### Core Functionality
 
-- **Persistent Storage:**
-  All chats saved to localStorage
-- **Responsive Sidebar**
-- **URL-Based Navigation:** Each chat has a unique URL with chat ID parameter
-- **Modern UI Components:**
-  * Dropdown menus for chat settings
-  * Overlay for chat renaming
+- **🤖 AI-Powered Chat**: Conversations with Claude (Haiku 4.5)
+- **💬 Chat Management**: Create, rename, delete, and organize conversations
+- **⭐ Favorites System**: Star important conversations
+- **💾 Persistent Storage**: All chats automatically saved to browser storage
+- **📱 Responsive Design**: Works seamlessly on desktop and mobile devices
 
-## Technologies
+### User Interface
+
+- **Collapsible Sidebar**: Quick access to chat history
+- **Dropdown Menus**: Context actions for each conversation
+- **Modal Dialogs**: Rename interface with keyboard support
+- **URL Navigation**: Each chat has a unique shareable URL
+- **Markdown Rendering**: Rich text display in messages
+
+## 🛠️ Tech Stack
 
 ### Frontend
 
-- HTML
-- CSS
-- TypeScript
+
+- [TypeScript](https://www.typescriptlang.org/)
+- [Marked.js](https://marked.js.org/)
+- HTML5/CSS3
 - localStorage
 
 ### Backend
 
-- Python
-- Flask
-- python-dotenv
 
-## Getting started
+- [Python](https://www.python.org/)
+- [Flask](https://flask.palletsprojects.com/)
+- [Flask-CORS](https://flask-cors.readthedocs.io/)
+- [Anthropic SDK](https://docs.anthropic.com/)
+- [python-dotenv](https://pypi.org/project/python-dotenv/)
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-* Node.js and npm (for TypeScript compilation)
-* Python ≥ 3.9
+- **Node.js** (v18.0.0 or higher)
+```bash
+  node --version  # Should be v18+
+```
+- **npm** (v9.0.0 or higher)
+```bash
+  npm --version  # Should be v9+
+```
+- **Python** (3.9 or higher)
+```bash
+  python --version  # Should be 3.9+
+```
+- **Anthropic API Key**
 
 ### Installation
 
-1. Clone or download the repo
-2. **Frontend Setup**
+1. **Clone the repository**
+```bash
+   git clone https://github.com/yourusername/claude-clone.git
+   cd claude-clone
+```
 
-  Install Node.js dependecies:
+2. **Install frontend dependencies**
+```bash
+   npm install
+```
 
-  `npm install`
+3. **Set up Python backend**
+```bash
+   cd backend
+   
+   # Create virtual environment
+   python -m venv venv
+   
+   # Activate virtual environment
+   # On Windows:
+   venv\Scripts\activate
+   # On macOS/Linux:
+   source venv/bin/activate
+   
+   # Install dependencies
+   pip install -r requirements.txt
+```
 
-3. **Backend Setup**
+### Configuration
 
-  Navigate to backend folder:
+1. **Create environment file**
+```bash
+   cd backend
+   cp .env.example .env
+```
 
-  `cd backend`
-  
-  Create virtual environment:
-  
-  `python -m venv venv`
+2. **Add your Anthropic API key**
+   
+   Open `backend/.env` and add:
+```env
+   ANTHROPIC_API_KEY=your_actual_api_key_here
+```
 
-  Activate virtual environment:
+3. **Verify TypeScript configuration**
+   
+   Check `tsconfig.json` for compiler options:
+```json
+   {
+     "compilerOptions": {
+       "target": "es2023",
+       "module": "es2022",
+       "strict": true,
+       "outDir": "./dist"
+     }
+   }
+```
 
-  `venv\Scripts\activate`
+### Running the Application
 
-  Install Python dependencies:
-  
-  `pip install -r requirements.txt`
+**Run Backend and Frontend Separately**
 
-4. **Configure API key**
+Terminal 1 - Backend:
+```bash
+cd backend
+source venv/bin/activate  # or venv\Scripts\activate on Windows
+python server.py
+```
+Server runs at `http://127.0.0.1:5000`
 
-  Add your Anthropic API key to `backend/.env`:
+Terminal 2 - Frontend Compilation (watch mode):
+```bash
+npm run build -- --watch
+```
 
-  `ANTHROPIC_API_KEY=your_key_here`
+Then open `new.html` in your browser.
 
-### Run the project
+## 🤝 Contributing
 
-1. **Start the backend (currently useless :) )**
-2. **Start the frontend** (in another terminal):
+Here's how you can help:
 
-  Compile TypeScript:
+1. **Fork the repository**
+2. **Create a feature branch**
+```bash
+   git checkout -b feature/sugoooy-feature
+```
+3. **Make your changes**
+4. **Commit your changes**
+```bash
+   git commit -m 'Add some ohayoo feature'
+```
+5. **Push to the branch**
+```bash
+   git push origin feature/sugoooy-feature
+```
+6. **Open a Pull Request**
 
-  `npm run build`
-
-  Then open `new.html` in your browser
+**Made with 愛 by [Your Name]**
