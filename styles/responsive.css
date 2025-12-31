@@ -1,0 +1,47 @@
+@media (max-width: 480px) {
+  .content {
+    width: 100%;
+    padding: 100px 0px 0px;
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .welcome-label {
+    font-size: 30px;
+  }
+
+  .upgrade-baner {
+    display: flex;
+    justify-content: center;
+    padding: 8px 4px;
+    border-radius: 8px;
+  }
+
+  .upgrade-baner p {
+    font-size: 12px;
+    width: fit-content;
+  }
+
+  .input-field {
+    width: 345px;
+    margin: 0px 20px;
+    border-color: rgb(0, 0, 0, 0);
+  }
+
+  .input-container {
+    margin-bottom: 30px;
+  }
+
+  .tools-button-container {
+    display: none;
+  }
+
+  .models-button-container button {
+    padding: 0px 8px;
+    width: fit-content;
+    white-space: nowrap;
+  }
+}
