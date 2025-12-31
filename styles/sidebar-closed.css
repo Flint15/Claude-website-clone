@@ -23,10 +23,11 @@
   aside.closed .recents-chats-label, 
   aside.closed .navigation-label, 
   aside.closed .user-profile-infos,
-  aside.closed .chats {
+  aside.closed .sidebar-content .chats-container {
     display: none;
     transition: display 2s;
   }
+
   aside.closed .user {
   position: fixed;
   bottom: 15px;
