@@ -67,7 +67,7 @@ This project is a **full-stack clone of the Claude AI chat interface**. Created 
 
 1. **Clone the repository**
 ```bash
-   git clone https://github.com/yourusername/claude-clone.git
+   git clone https://github.com/Flint15/Claude-website-clone.git
    cd claude-clone
 ```
 
